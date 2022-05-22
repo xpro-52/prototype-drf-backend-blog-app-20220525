@@ -1,0 +1,7 @@
+.vscode
+__pycache__
+migrations
+db.sqlite3
+Pipfile
+Pipfile.lock
+frontend
