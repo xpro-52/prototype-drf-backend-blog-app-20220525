@@ -1,5 +1,6 @@
 from django.http import HttpRequest
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.middleware.csrf import get_token
 from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
@@ -7,6 +8,7 @@ from django.utils.decorators import method_decorator
 from rest_framework.decorators import (
     api_view, authentication_classes
 )
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -73,7 +75,6 @@ class CustomTokenRefreshView(views.TokenRefreshView):
 def has_access_token(request: HttpRequest):
     response = Response(data={"has_access_token": False})
     access = request.COOKIES.get("access")
-    print(access)
     if access:
         try:
             AccessToken(access)

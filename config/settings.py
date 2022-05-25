@@ -139,27 +139,34 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Authentication
 AUTH_USER_MODEL = 'customuser.CustomUser'
 
-#Rest framework
+# Rest framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'customauth.authentication.JWTAuthenticationWithCookie',
     ],
 }
 
+# simple jwt
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
-    # 'ACCESS_TOKEN_LIFETIME': timedelta(seconds=10),
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10),
+    'ACCESS_TOKEN_LIFETIME': timedelta(seconds=10),
+    # 'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ALGORITHM': 'HS256',
 }
 
+# cors-headers
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8080',
     'http://localhost:8080',
 ]
-
 CORS_ALLOW_CREDENTIALS = True
 
+# csrf
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8080',]
+
+# djoser
+DJOSER = {
+    "USER_CREATE_PASSWORD_RETYPE": True,
+}

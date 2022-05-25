@@ -1,7 +1,6 @@
 from django.http import HttpRequest
 from django.middleware.csrf import CsrfViewMiddleware
 
-from rest_framework import exceptions
 from rest_framework.authentication import SessionAuthentication
 
 from rest_framework_simplejwt.authentication import JWTAuthentication
